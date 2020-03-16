@@ -5,8 +5,8 @@
         = current_user.name
       .chat-side__header__list__menu
         .chat-side__header__list__menu__top-items
-          = link_to "#" do
-            = icon('fas', 'edit')
+          = link_to new_group_path do
+            = icon('fas', 'edit', class: 'icon')
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon')
 
