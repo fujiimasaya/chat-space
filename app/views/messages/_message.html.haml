@@ -1,0 +1,32 @@
+.chat-main__message__list
+  .chat-main__message__list__upper-info
+    .chat-main__message__list__upper-info__talker
+      = message.user.name
+    .chat-main__message__list__upper-info__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .chat-main__message__list
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+
+
+
+
+-# .chat-main__message__list
+-#       .chat-main__message__list__upper-info
+-#         .chat-main__message__list__upper-info__talker
+-#           masa
+-#         .chat-main__message__list__upper-info__date
+-#           2019/11/20(wed)17:43:01
+-#       .chat-main__message__list__text
+-#         おはよう！
+-#         .chat-main__message__list
+      -# .chat-main__message__list__upper-info
+      -#   .chat-main__message__list__upper-info__talker
+      -#     masa
+      -#   .chat-main__message__list__upper-info__date
+      -#     2019/11/20(wed)17:43:34
+      -# .chat-main__message__list__text
+      -#   今日は夜から雨

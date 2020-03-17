@@ -57,6 +57,10 @@
       margin-bottom: 40px;
       font-weight: bold;
       display: inline-block;
+      a{
+        color: white;
+        text-decoration: none;
+      }
 
       &__name{
           font-size: 15px;

@@ -11,9 +11,10 @@
             = icon('fas', 'cog', class: 'icon')
 
   .chat-side__body
-    =link_to "#", class:"body" do
+    - current_user.groups.each do |group|
       .chat-side__body__group
-        %p.chat-side__body__group__name
-          test
-        %p.chat-side__body__group__latest-message
-          まだメッセージはありません
+        = link_to group_messages_path(group) do
+          %p.chat-side__body__group__name
+            = group.name
+          %p.chat-side__body__group__latest-message
+            = group.show_last_message
