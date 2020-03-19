@@ -25,6 +25,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to group_messages_path(@group.id), notice: 'グループを更新しました'
+      # edirect_to group_messages_path(@group.id)はリダイレクト先を編集した一覧ページ一覧ページにリダイレクトさせる事によってわざわざトップページに移動しなくて済む
     else
       render :edit
     end
