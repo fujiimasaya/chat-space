@@ -9,7 +9,10 @@ class MessagesController < ApplicationController
   def create
     @message = @group.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
+        format.json
+      end
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください。'
@@ -27,3 +30,8 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 end
+
+# creatアクション
+# json形式で来たリクエストに対してjson形式のレスポンスを返すための記述を行います。
+# respond_toメソッドを利用すると、フォーマットに応じたレスポンスを作成することができます。
+# この後、対応するcreate.json.jbuilderを作成することで、レスポンスをjson形式で返すことができます。
