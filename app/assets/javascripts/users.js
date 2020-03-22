@@ -39,7 +39,6 @@ $(function() {
   $("#user-search-field").on("keyup", function() {
     //検索欄に入力された文字をvalで取得し変数inputに代入
     let input = $("#user-search-field").val();
-    console.log(input)
     $.ajax({
       type: "GET",//httpメソッド(今回はget)
       url: "/users",//送る先のurl
